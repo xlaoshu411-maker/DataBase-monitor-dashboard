@@ -1,0 +1,21 @@
+hostid	hostname	owner	model	location1	location2
+host001	server-001.hismartlab.cn	陈三	Dell R750	A机房	机柜12
+host002	server-002.hismartlab.cn	钱七	HP DL388	B机房	机柜03
+host003	server-003.hismartlab.cn	林四	Dell R750	E机房	机柜02
+host004	server-004.hismartlab.cn	王二	Huawei 2288H	A机房	机柜01
+host005	server-005.hismartlab.cn	李四	HP DL388	B机房	机柜09
+host006	server-006.hismartlab.cn	王二	Dell R740	E机房	机柜04
+host007	server-007.hismartlab.cn	林四	Huawei 2288H	B机房	机柜08
+host008	server-008.hismartlab.cn	王二	Lenovo SR650	A机房	机柜03
+host009	server-009.hismartlab.cn	林四	Huawei 2288H	C机房	机柜05
+host010	server-010.hismartlab.cn	王五	HP DL388	C机房	机柜02
+host011	server-011.hismartlab.cn	李四	Huawei 2288H	A机房	机柜06
+host012	server-012.hismartlab.cn	刘六	Lenovo SR860	E机房	机柜05
+host013	server-013.hismartlab.cn	黄五	Dell R740	D机房	机柜09
+host014	server-014.hismartlab.cn	李四	Huawei 2288H	A机房	机柜09
+host015	server-015.hismartlab.cn	钱七	Lenovo SR860	E机房	机柜04
+host016	server-016.hismartlab.cn	林四	Dell R750	A机房	机柜11
+host017	server-017.hismartlab.cn	赵六	Lenovo SR650	A机房	机柜04
+host018	server-018.hismartlab.cn	刘六	Dell R750	D机房	机柜05
+host019	server-019.hismartlab.cn	吴十	Lenovo SR860	B机房	机柜06
+host020	server-020.hismartlab.cn	孙八	HP DL388	C机房	机柜12
