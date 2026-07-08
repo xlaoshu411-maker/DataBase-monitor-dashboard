@@ -8,158 +8,225 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%;overflow:hidden}
-body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#060612;color:#e8e8f0;user-select:none}
-/* ===== Animated Background ===== */
+body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#04040e;color:#e8e8f0;user-select:none}
+/* ===== 🎆 Animated Background ===== */
 .bg-layer{position:fixed;inset:0;z-index:0;overflow:hidden}
+/* Deep nebula gradient */
 .bg-gradient{position:absolute;inset:0;background:
-  radial-gradient(ellipse 70% 50% at 15% 20%,rgba(20,60,200,0.20) 0%,transparent 60%),
-  radial-gradient(ellipse 60% 50% at 85% 80%,rgba(120,30,200,0.12) 0%,transparent 55%),
-  radial-gradient(ellipse 50% 40% at 50% 60%,rgba(0,40,120,0.18) 0%,transparent 60%),
-  radial-gradient(ellipse 40% 30% at 30% 70%,rgba(0,180,200,0.06) 0%,transparent 50%);
-  animation:bgDrift 20s ease-in-out infinite alternate}
-@keyframes bgDrift{0%{transform:scale(1) rotate(0deg)}100%{transform:scale(1.15) rotate(3deg)}}
-.aurora{position:absolute;width:60%;height:40%;border-radius:50%;filter:blur(80px);opacity:0.15;animation:auroraMove 12s ease-in-out infinite alternate}
-.aurora:nth-child(2){top:-10%;left:-10%;background:radial-gradient(ellipse, rgba(40,100,255,0.3), transparent);animation-delay:-4s}
-.aurora:nth-child(3){bottom:-15%;right:-5%;background:radial-gradient(ellipse, rgba(150,50,255,0.2), transparent);animation-delay:-8s}
-.aurora:nth-child(4){top:40%;left:40%;width:50%;height:30%;background:radial-gradient(ellipse, rgba(0,200,220,0.15), transparent);animation-delay:-2s}
-@keyframes auroraMove{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,-20px) scale(1.1)}}
+  radial-gradient(ellipse 80% 55% at 10% 15%,rgba(15,45,180,0.22) 0%,transparent 60%),
+  radial-gradient(ellipse 70% 50% at 88% 85%,rgba(100,20,180,0.15) 0%,transparent 55%),
+  radial-gradient(ellipse 55% 45% at 45% 55%,rgba(0,30,100,0.20) 0%,transparent 60%),
+  radial-gradient(ellipse 45% 35% at 25% 70%,rgba(0,150,200,0.07) 0%,transparent 50%),
+  radial-gradient(ellipse 50% 40% at 70% 20%,rgba(180,50,200,0.06) 0%,transparent 50%);
+  animation:bgDrift 25s ease-in-out infinite alternate}
+@keyframes bgDrift{0%{transform:scale(1) rotate(0deg)}100%{transform:scale(1.12) rotate(2deg)}}
+/* Aurora blobs */
+.aurora{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.12;animation:auroraMove 14s ease-in-out infinite alternate}
+.aurora:nth-child(2){width:70%;height:45%;top:-12%;left:-8%;background:radial-gradient(ellipse,rgba(30,80,255,0.25),transparent);animation-delay:-3s}
+.aurora:nth-child(3){width:65%;height:40%;bottom:-18%;right:-5%;background:radial-gradient(ellipse,rgba(140,40,255,0.18),transparent);animation-delay:-7s}
+.aurora:nth-child(4){width:50%;height:30%;top:35%;left:38%;background:radial-gradient(ellipse,rgba(0,200,230,0.12),transparent);animation-delay:-1s}
+.aurora:nth-child(5){width:40%;height:25%;top:10%;right:10%;background:radial-gradient(ellipse,rgba(255,100,150,0.08),transparent);animation-delay:-5s}
+.aurora:nth-child(6){width:55%;height:35%;bottom:10%;left:5%;background:radial-gradient(ellipse,rgba(50,200,180,0.08),transparent);animation-delay:-9s}
+@keyframes auroraMove{0%{transform:translate(0,0) scale(1)}100%{transform:translate(25px,-15px) scale(1.08)}}
+/* Grid with glow */
 .bg-grid{position:absolute;inset:0;background-image:
-  linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px);
-  background-size:60px 60px;animation:gridPulse 8s ease-in-out infinite alternate}
-@keyframes gridPulse{0%{opacity:0.4}100%{opacity:1}}
-/* Particles */
-.particles{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.particle{position:absolute;border-radius:50%;background:rgba(120,200,255,0.4);animation:particleFloat linear infinite}
-@keyframes particleFloat{0%{transform:translateY(100vh) scale(0);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translateY(-10vh) scale(1);opacity:0}}
-/* ===== Glass Card ===== */
-.glass{background:rgba(255,255,255,0.035);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.07);border-radius:14px;box-shadow:0 4px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.05);position:relative;overflow:hidden;transition:border-color 0.4s,box-shadow 0.4s}
-.glass::before{content:'';position:absolute;inset:-1px;border-radius:14px;background:linear-gradient(135deg,rgba(255,255,255,0.05),transparent 50%,rgba(255,255,255,0.02));pointer-events:none;z-index:0}
+  linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);
+  background-size:50px 50px;animation:gridPulse 8s ease-in-out infinite alternate}
+@keyframes gridPulse{0%{opacity:0.3}100%{opacity:0.9}}
+/* Scanning light beam */
+.scan-line{position:absolute;left:0;right:0;height:2px;z-index:1;background:linear-gradient(90deg,transparent,rgba(42,120,214,0.3),rgba(100,200,255,0.5),rgba(42,120,214,0.3),transparent);filter:blur(2px);animation:scanMove 6s linear infinite;pointer-events:none}
+@keyframes scanMove{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
+/* Light rays from corners */
+.light-ray{position:absolute;pointer-events:none;opacity:0.04}
+.light-ray:nth-child(8){top:-20%;left:-10%;width:40%;height:60%;background:linear-gradient(135deg,rgba(50,120,255,0.3),transparent);transform:rotate(15deg);animation:rayPulse 6s ease-in-out infinite alternate}
+.light-ray:nth-child(9){bottom:-15%;right:-5%;width:35%;height:50%;background:linear-gradient(315deg,rgba(150,50,255,0.2),transparent);transform:rotate(-10deg);animation:rayPulse 8s ease-in-out infinite alternate-reverse}
+@keyframes rayPulse{0%{opacity:0.02}100%{opacity:0.07}}
+/* Noise texture overlay */
+.noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px}
+/* ===== Stars ===== */
+.stars{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.star{position:absolute;border-radius:50%;background:#fff;animation:starTwinkle var(--dur) ease-in-out infinite alternate}
+@keyframes starTwinkle{0%{opacity:var(--min-o);transform:scale(0.8)}100%{opacity:var(--max-o);transform:scale(1.2)}}
+/* Floating data particles */
+.data-float{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.data-char{position:absolute;font-family:'Courier New',monospace;font-size:10px;color:rgba(42,120,214,0.12);animation:dataRise linear infinite;pointer-events:none}
+@keyframes dataRise{0%{transform:translateY(100%) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) rotate(360deg);opacity:0}}
+/* ===== Glass Card - Enhanced ===== */
+.glass{
+  background:rgba(255,255,255,0.07);
+  backdrop-filter:blur(30px);
+  -webkit-backdrop-filter:blur(30px);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:14px;
+  box-shadow:
+    0 4px 32px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    inset 0 -1px 0 rgba(255,255,255,0.03);
+  position:relative;
+  overflow:hidden;
+  transition:border-color 0.5s,box-shadow 0.5s,background 0.5s;
+}
+.glass::before{
+  content:'';position:absolute;inset:-1px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(255,255,255,0.08),transparent 40%,rgba(255,255,255,0.03));
+  pointer-events:none;z-index:0;
+}
+.glass::after{
+  content:'';position:absolute;inset:0;border-radius:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.03) 0%,transparent 40%,transparent 60%,rgba(255,255,255,0.02) 100%);
+  pointer-events:none;z-index:0;
+}
+.glass:hover{
+  background:rgba(255,255,255,0.09);
+  border-color:rgba(255,255,255,0.15);
+  box-shadow:0 6px 40px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.14);
+}
 .glass>*{position:relative;z-index:1}
-.glow-border{--glow:rgba(42,120,214,0.15);border-color:transparent;background-clip:padding-box}
-.glow-border::after{content:'';position:absolute;inset:-1px;border-radius:14px;padding:1px;background:linear-gradient(135deg,var(--glow),transparent 50%,var(--glow));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0.6;transition:opacity 0.6s}
-.glow-border:hover::after{opacity:1}
-.glass-header{display:flex;align-items:center;gap:8px;padding:10px 14px 0 14px;font-size:13px;font-weight:600;letter-spacing:0.2px;color:rgba(255,255,255,0.8);flex-shrink:0}
-.glass-header .icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
-.glass-body{flex:1;padding:6px 10px 8px;min-height:0;display:flex;flex-direction:column}
-.module-subtitle{font-size:10px;color:rgba(255,255,255,0.25);margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-/* ===== Dashboard Grid ===== */
-.dashboard{position:relative;z-index:2;width:100%;height:100vh;display:grid;grid-template-rows:42px 62px 1.4fr 1fr 1.15fr;grid-template-columns:repeat(24,1fr);gap:6px;padding:8px 10px}
-/* Header */
-.header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:6px 18px;border-radius:12px;gap:12px}
-.header-left{display:flex;align-items:center;gap:12px;min-width:0}
-.header-logo{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#2a78d6,#6d5ae0);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 2px 12px rgba(42,120,214,0.35)}
-.header-title{font-size:16px;font-weight:700;letter-spacing:0.5px;white-space:nowrap}
-.header-title span{color:rgba(255,255,255,0.35);font-weight:400;font-size:13px}
-.header-mid{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+/* Glow border - animated gradient */
+.glow-border{--glow-c1:rgba(42,120,214,0.2);--glow-c2:rgba(100,200,255,0.08);border-color:transparent;background-clip:padding-box}
+.glow-border::after{
+  content:'';position:absolute;inset:-1px;border-radius:14px;padding:1px;
+  background:linear-gradient(135deg,var(--glow-c1),transparent 30%,var(--glow-c2),transparent 70%,var(--glow-c1));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  pointer-events:none;opacity:0.7;transition:opacity 0.6s;
+  animation:borderGlow 4s ease-in-out infinite alternate;
+}
+@keyframes borderGlow{0%{opacity:0.5}100%{opacity:1}}
+.glow-border:hover::after{opacity:1;animation-duration:2s}
+/* Card edge glare */
+.glass .glare{position:absolute;top:-50%;left:-50%;width:200%;height:200%;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,0.04),transparent 60%);animation:glareShift 10s ease-in-out infinite alternate}
+@keyframes glareShift{0%{transform:translate(-10%,-10%)}100%{transform:translate(10%,10%)}}
+/* ===== Header ===== */
+.glass-header{display:flex;align-items:center;gap:8px;padding:9px 12px 0 12px;font-size:13px;font-weight:600;letter-spacing:0.2px;color:rgba(255,255,255,0.8);flex-shrink:0}
+.glass-header .icon{font-size:14px;width:18px;text-align:center;flex-shrink:0}
+.glass-body{flex:1;padding:5px 8px 7px;min-height:0;display:flex;flex-direction:column}
+.module-subtitle{font-size:10px;color:rgba(255,255,255,0.22);margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ===== Layout Grid ===== */
+.dashboard{position:relative;z-index:3;width:100%;height:100vh;display:grid;grid-template-rows:42px 62px 1.4fr 1fr 1.15fr;grid-template-columns:repeat(24,1fr);gap:6px;padding:8px 10px}
+/* ===== Header ===== */
+.header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:5px 16px;border-radius:12px;gap:10px}
+.header-left{display:flex;align-items:center;gap:10px;min-width:0}
+.header-logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#2a78d6,#6d5ae0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 2px 12px rgba(42,120,214,0.4);animation:logoGlow 3s ease-in-out infinite alternate}
+@keyframes logoGlow{0%{box-shadow:0 2px 12px rgba(42,120,214,0.3)}100%{box-shadow:0 2px 20px rgba(42,120,214,0.6)}}
+.header-title{font-size:16px;font-weight:700;letter-spacing:0.5px;white-space:nowrap;background:linear-gradient(90deg,#fff 30%,rgba(255,255,255,0.6));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header-title span{color:rgba(255,255,255,0.35);font-weight:400;font-size:13px;-webkit-text-fill-color:rgba(255,255,255,0.35)}
+.header-mid{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
 .header-mid-item{text-align:center}
 .header-mid-val{font-size:16px;font-weight:700;color:#5be0b0;font-variant-numeric:tabular-nums}
 .header-mid-val.gold{color:#eda100}
 .header-mid-val.blue{color:#6da7ec}
-.header-mid-lbl{font-size:9px;color:rgba(255,255,255,0.35);margin-top:1px;text-transform:uppercase;letter-spacing:0.5px}
-.header-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
-.header-time{font-size:12px;color:rgba(255,255,255,0.4);font-variant-numeric:tabular-nums;white-space:nowrap}
+.header-mid-lbl{font-size:9px;color:rgba(255,255,255,0.3);margin-top:1px;letter-spacing:0.5px}
+.header-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.header-time{font-size:12px;color:rgba(255,255,255,0.35);font-variant-numeric:tabular-nums;white-space:nowrap}
 .header-badge{display:flex;align-items:center;gap:4px;padding:2px 10px;border-radius:20px;font-size:10px;font-weight:600}
-.header-badge.online{background:rgba(12,163,12,0.12);color:#0ca30c}
+.header-badge.online{background:rgba(12,163,12,0.1);color:#0ca30c;border:1px solid rgba(12,163,12,0.15)}
 .header-badge .dot{width:6px;height:6px;border-radius:50%;background:#0ca30c;animation:pulseDot 1.5s ease-in-out infinite}
-@keyframes pulseDot{0%,100%{opacity:1;box-shadow:0 0 4px #0ca30c}50%{opacity:0.4;box-shadow:0 0 8px #0ca30c}}
-/* Stat Cards */
+@keyframes pulseDot{0%,100%{opacity:1;box-shadow:0 0 4px #0ca30c}50%{opacity:0.4;box-shadow:0 0 10px #0ca30c}}
+/* ===== Stat Cards ===== */
 .stat-row{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.stat-card{display:flex;align-items:center;padding:10px 16px;gap:14px;border-radius:12px;position:relative;overflow:hidden}
-.stat-card::after{content:'';position:absolute;top:-30%;right:-20%;width:100px;height:100px;border-radius:50%;opacity:0.06;pointer-events:none}
+.stat-card{display:flex;align-items:center;padding:9px 14px;gap:12px;border-radius:12px;position:relative;overflow:hidden}
+.stat-card::after{
+  content:'';position:absolute;top:-30%;right:-20%;width:120px;height:120px;border-radius:50%;opacity:0.08;pointer-events:none;
+  animation:statGlow 4s ease-in-out infinite alternate;
+}
 .stat-card:nth-child(1)::after{background:radial-gradient(circle,#2a78d6,transparent)}
-.stat-card:nth-child(2)::after{background:radial-gradient(circle,#1baf7a,transparent)}
-.stat-card:nth-child(3)::after{background:radial-gradient(circle,#eda100,transparent)}
-.stat-card:nth-child(4)::after{background:radial-gradient(circle,#4a3aa7,transparent)}
-.stat-card-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.stat-card:nth-child(1) .stat-card-icon{background:rgba(42,120,214,0.12)}
-.stat-card:nth-child(2) .stat-card-icon{background:rgba(27,175,122,0.12)}
-.stat-card:nth-child(3) .stat-card-icon{background:rgba(237,161,0,0.12)}
-.stat-card:nth-child(4) .stat-card-icon{background:rgba(74,58,167,0.12)}
+.stat-card:nth-child(2)::after{background:radial-gradient(circle,#1baf7a,transparent);animation-delay:-1s}
+.stat-card:nth-child(3)::after{background:radial-gradient(circle,#eda100,transparent);animation-delay:-2s}
+.stat-card:nth-child(4)::after{background:radial-gradient(circle,#4a3aa7,transparent);animation-delay:-3s}
+@keyframes statGlow{0%{opacity:0.04;transform:scale(1)}100%{opacity:0.12;transform:scale(1.1)}}
+.stat-card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;position:relative;overflow:hidden}
+.stat-card:nth-child(1) .stat-card-icon{background:rgba(42,120,214,0.15)}
+.stat-card:nth-child(2) .stat-card-icon{background:rgba(27,175,122,0.15)}
+.stat-card:nth-child(3) .stat-card-icon{background:rgba(237,161,0,0.15)}
+.stat-card:nth-child(4) .stat-card-icon{background:rgba(74,58,167,0.15)}
 .stat-card-info{flex:1;min-width:0}
-.stat-card-label{font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:2px}
-.stat-card-value{font-size:26px;font-weight:700;line-height:1.1;background:linear-gradient(135deg,#fff 40%,rgba(255,255,255,0.55));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stat-card-sub{font-size:10px;color:rgba(255,255,255,0.25);margin-top:1px}
-.stat-card-tag{flex-shrink:0;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:600}
-.tag-good{background:rgba(12,163,12,0.12);color:#0ca30c}
-.tag-warn{background:rgba(250,178,25,0.12);color:#fab219}
-.tag-serious{background:rgba(236,131,90,0.12);color:#ec835a}
-.tag-critical{background:rgba(208,59,59,0.12);color:#e66767}
-/* Panels */
+.stat-card-label{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:1px}
+.stat-card-value{font-size:26px;font-weight:700;line-height:1.1;background:linear-gradient(135deg,#fff 40%,rgba(255,255,255,0.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card-sub{font-size:10px;color:rgba(255,255,255,0.2);margin-top:1px}
+.stat-card-tag{flex-shrink:0;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:600;backdrop-filter:blur(10px)}
+.tag-good{background:rgba(12,163,12,0.12);color:#0ca30c;border:1px solid rgba(12,163,12,0.08)}
+.tag-warn{background:rgba(250,178,25,0.12);color:#fab219;border:1px solid rgba(250,178,25,0.08)}
+.tag-serious{background:rgba(236,131,90,0.12);color:#ec835a;border:1px solid rgba(236,131,90,0.08)}
+.tag-critical{background:rgba(208,59,59,0.12);color:#e66767;border:1px solid rgba(208,59,59,0.08)}
+/* ===== Panels ===== */
 .panel{display:flex;flex-direction:column;border-radius:12px;min-height:0}
 .panel-full{grid-column:1/-1}
 .chart-fill{flex:1;width:100%;min-height:0}
-/* Risk Table */
+/* ===== Risk Table ===== */
 .risk-table{width:100%;border-collapse:collapse;font-size:10px;table-layout:fixed}
 .risk-table thead{position:sticky;top:0;z-index:2}
-.risk-table th{text-align:left;padding:4px 6px;color:rgba(255,255,255,0.3);font-weight:500;border-bottom:1px solid rgba(255,255,255,0.04);font-size:9px;letter-spacing:0.3px;background:rgba(8,8,18,0.6)}
-.risk-table td{padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.02);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.risk-bar-bg{width:100%;height:4px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden}
+.risk-table th{text-align:left;padding:3px 5px;color:rgba(255,255,255,0.25);font-weight:500;border-bottom:1px solid rgba(255,255,255,0.04);font-size:9px;letter-spacing:0.3px;background:rgba(8,8,18,0.5)}
+.risk-table td{padding:2px 5px;border-bottom:1px solid rgba(255,255,255,0.015);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.risk-bar-bg{width:100%;height:4px;background:rgba(255,255,255,0.04);border-radius:2px;overflow:hidden}
 .risk-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#1baf7a,#eda100,#e34948);transition:width 1.2s cubic-bezier(0.22,1,0.36,1)}
-.risk-rank{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:4px;font-size:9px;font-weight:700}
+.risk-rank{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:4px;font-size:9px;font-weight:700}
 .rank-1{background:rgba(227,73,72,0.2);color:#e66767}
 .rank-2{background:rgba(235,104,52,0.2);color:#eb6834}
 .rank-3{background:rgba(237,161,0,0.2);color:#eda100}
-/* Matrix */
-.matrix-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;flex:1;align-content:stretch}
-.matrix-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:8px;border:1px solid rgba(255,255,255,0.05);cursor:pointer;transition:all 0.3s ease;background:rgba(255,255,255,0.015);padding:4px 2px;gap:1px}
-.matrix-cell:hover{transform:translateY(-1px);border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.04)}
-.matrix-cell-id{font-size:10px;font-weight:600;display:flex;align-items:center;gap:4px}
-.matrix-cell-owner{font-size:9px;color:rgba(255,255,255,0.3)}
+/* ===== Matrix ===== */
+.matrix-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;flex:1;align-content:stretch}
+.matrix-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:7px;border:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:all 0.35s ease;background:rgba(255,255,255,0.015);padding:3px 1px;gap:1px;position:relative;overflow:hidden}
+.matrix-cell::before{content:'';position:absolute;inset:0;border-radius:7px;background:linear-gradient(135deg,transparent,transparent 40%,rgba(255,255,255,0.02));pointer-events:none}
+.matrix-cell:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.05);box-shadow:0 4px 16px rgba(0,0,0,0.3)}
+.matrix-cell-id{font-size:10px;font-weight:600;display:flex;align-items:center;gap:3px}
+.matrix-cell-owner{font-size:9px;color:rgba(255,255,255,0.25)}
 .matrix-cell-status{display:inline-block;width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.status-green{background:#0ca30c;box-shadow:0 0 6px rgba(12,163,12,0.3)}
-.status-yellow{background:#fab219;box-shadow:0 0 6px rgba(250,178,25,0.3)}
-.status-orange{background:#ec835a;box-shadow:0 0 6px rgba(236,131,90,0.3)}
-.status-red{background:#d03b3b;box-shadow:0 0 6px rgba(208,59,59,0.3)}
-/* Alert */
-.alert-wrap{height:100%;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,transparent 0%,#000 6%,#000 94%,transparent 100%)}
-.alert-scroll{animation:scrollAlert 30s linear infinite}
+.status-green{background:#0ca30c;box-shadow:0 0 6px rgba(12,163,12,0.4)}
+.status-yellow{background:#fab219;box-shadow:0 0 6px rgba(250,178,25,0.4)}
+.status-orange{background:#ec835a;box-shadow:0 0 6px rgba(236,131,90,0.4)}
+.status-red{background:#d03b3b;box-shadow:0 0 6px rgba(208,59,59,0.4)}
+/* ===== Alerts ===== */
+.alert-wrap{height:100%;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+.alert-scroll{animation:scrollAlert 35s linear infinite}
 .alert-scroll:hover{animation-play-state:paused}
 @keyframes scrollAlert{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
-.alert-item{display:flex;align-items:flex-start;gap:6px;padding:5px 4px;border-bottom:1px solid rgba(255,255,255,0.025);font-size:11px;line-height:1.4}
+.alert-item{display:flex;align-items:flex-start;gap:5px;padding:4px 3px;border-bottom:1px solid rgba(255,255,255,0.02);font-size:11px;line-height:1.35;transition:background 0.3s}
+.alert-item:hover{background:rgba(255,255,255,0.03)}
 .alert-badge{flex-shrink:0;padding:1px 6px;border-radius:3px;font-size:8px;font-weight:700;letter-spacing:0.3px}
 .badge-critical{background:rgba(208,59,59,0.18);color:#e66767}
 .badge-serious{background:rgba(236,131,90,0.18);color:#ec835a}
 .badge-warning{background:rgba(250,178,25,0.18);color:#fab219}
 .badge-info{background:rgba(42,120,214,0.18);color:#6da7ec}
-.alert-text{color:rgba(255,255,255,0.65);flex:1;min-width:0}
-.alert-time{font-size:9px;color:rgba(255,255,255,0.2);flex-shrink:0}
-/* Shimmer effect */
-@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
-/* Scrollbar */
+.alert-text{color:rgba(255,255,255,0.6);flex:1;min-width:0}
+.alert-time{font-size:9px;color:rgba(255,255,255,0.15);flex-shrink:0}
+/* ===== Scrollbar ===== */
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px}
-
-/* Responsive adjustments */
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.06);border-radius:2px}
+/* ===== Responsive ===== */
 @media(max-width:1366px){
   .dashboard{gap:5px;padding:6px 8px;grid-template-rows:38px 56px 1.35fr 1fr 1.1fr}
-  .header-title{font-size:14px}
-  .header-title span{font-size:11px}
-  .stat-card-value{font-size:22px}
-  .stat-card{padding:8px 12px}
-  .glass-header{font-size:12px;padding:8px 10px 0}
+  .header-title{font-size:14px}.header-title span{font-size:11px}
+  .stat-card-value{font-size:22px}.stat-card{padding:7px 10px}
+  .glass-header{font-size:12px;padding:7px 10px 0}
   .risk-table td,.risk-table th{padding:2px 4px;font-size:9px}
-  .matrix-cell-id{font-size:9px}
-  .alert-item{font-size:10px;padding:4px 2px}
+  .matrix-cell-id{font-size:9px}.alert-item{font-size:10px;padding:3px 2px}
 }
 @media(max-width:1024px){
   .dashboard{grid-template-columns:repeat(12,1fr);grid-template-rows:36px auto auto auto auto auto;overflow-y:auto;height:auto;min-height:100vh}
-  .stat-row{grid-template-columns:repeat(2,1fr)}
-  .matrix-grid{grid-template-columns:repeat(4,1fr)}
+  .stat-row{grid-template-columns:repeat(2,1fr)}.matrix-grid{grid-template-columns:repeat(4,1fr)}
 }
 </style>
 </head>
 <body>
+<!-- ===== Background Layers ===== -->
 <div class="bg-layer">
   <div class="bg-gradient"></div>
-  <div class="aurora"></div><div class="aurora"></div><div class="aurora"></div>
+  <div class="aurora"></div><div class="aurora"></div><div class="aurora"></div><div class="aurora"></div><div class="aurora"></div>
   <div class="bg-grid"></div>
+  <div class="scan-line"></div>
+  <div class="light-ray"></div><div class="light-ray"></div>
 </div>
+<div class="noise"></div>
+<div class="stars" id="stars"></div>
+<div class="data-float" id="dataFloat"></div>
 <div class="particles" id="particles"></div>
 
+<!-- ===== Dashboard ===== -->
 <div class="dashboard" id="app">
-  <!-- ===== Header ===== -->
+  <!-- Header -->
   <div class="header glass">
     <div class="header-left">
       <div class="header-logo">TS</div>
@@ -176,9 +243,9 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Micro
     </div>
   </div>
 
-  <!-- ===== Row 2: 今日健康仪表盘 ===== -->
+  <!-- Row 2: Stat Cards -->
   <div class="stat-row">
-    <div class="stat-card glass glow-border">
+    <div class="stat-card glass glow-border"><div class="glare"></div>
       <div class="stat-card-icon">🏥</div>
       <div class="stat-card-info">
         <div class="stat-card-label">综合健康评分</div>
@@ -187,7 +254,7 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Micro
       </div>
       <div class="stat-card-tag tag-good">状态良好</div>
     </div>
-    <div class="stat-card glass glow-border">
+    <div class="stat-card glass glow-border"><div class="glare"></div>
       <div class="stat-card-icon">🖥️</div>
       <div class="stat-card-info">
         <div class="stat-card-label">主机在线率</div>
@@ -196,7 +263,7 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Micro
       </div>
       <div class="stat-card-tag tag-good">运行正常</div>
     </div>
-    <div class="stat-card glass glow-border">
+    <div class="stat-card glass glow-border"><div class="glare"></div>
       <div class="stat-card-icon">⚡</div>
       <div class="stat-card-info">
         <div class="stat-card-label">平均 CPU 使用率</div>
@@ -205,7 +272,7 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Micro
       </div>
       <div class="stat-card-tag tag-warn">中等负载</div>
     </div>
-    <div class="stat-card glass glow-border">
+    <div class="stat-card glass glow-border"><div class="glare"></div>
       <div class="stat-card-icon">💾</div>
       <div class="stat-card-info">
         <div class="stat-card-label">平均内存使用率</div>
@@ -216,52 +283,50 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Micro
     </div>
   </div>
 
-  <!-- ===== Row 3: 核心指标日走势 ===== -->
-  <div class="panel panel-full glass" style="grid-row:3">
+  <!-- Row 3: Trend -->
+  <div class="panel panel-full glass" style="grid-row:3"><div class="glare"></div>
     <div class="glass-header"><span class="icon">📈</span>核心指标日走势<span class="module-subtitle">CPU · 内存 · 网络 · 按小时聚合</span></div>
     <div class="glass-body"><div class="chart-fill" id="chartTrend"></div></div>
   </div>
 
-  <!-- ===== Row 4: 机房+型号+网络+告警 ===== -->
-  <div class="panel glass" style="grid-column:span 5">
+  <!-- Row 4: 机房+型号+网络+告警 -->
+  <div class="panel glass" style="grid-column:span 5"><div class="glare"></div>
     <div class="glass-header"><span class="icon">🏢</span>机房健康分布<span class="module-subtitle">A~E</span></div>
     <div class="glass-body"><div class="chart-fill" id="chartLoc"></div></div>
   </div>
-  <div class="panel glass" style="grid-column:span 5">
+  <div class="panel glass" style="grid-column:span 5"><div class="glare"></div>
     <div class="glass-header"><span class="icon">🔧</span>硬件型号分布<span class="module-subtitle">6 种</span></div>
     <div class="glass-body"><div class="chart-fill" id="chartModel"></div></div>
   </div>
-  <div class="panel glass" style="grid-column:span 7">
+  <div class="panel glass" style="grid-column:span 7"><div class="glare"></div>
     <div class="glass-header"><span class="icon">🌐</span>网络流量<span class="module-subtitle">入站/出站 MB/s</span></div>
     <div class="glass-body"><div class="chart-fill" id="chartNet"></div></div>
   </div>
-  <div class="panel glass" style="grid-column:span 7">
+  <div class="panel glass" style="grid-column:span 7"><div class="glare"></div>
     <div class="glass-header"><span class="icon">🔔</span>实时告警<span class="module-subtitle">最新 15 条</span></div>
     <div class="glass-body" style="padding-bottom:4px"><div class="alert-wrap" id="alertContainer"></div></div>
   </div>
 
-  <!-- ===== Row 5: 风险排行+健康矩阵+磁盘 ===== -->
-  <div class="panel glass" style="grid-column:span 9">
+  <!-- Row 5: 风险排行+健康矩阵+磁盘 -->
+  <div class="panel glass" style="grid-column:span 9"><div class="glare"></div>
     <div class="glass-header"><span class="icon">⚠️</span>主机风险排行<span class="module-subtitle">综合评分降序</span></div>
-    <div class="glass-body" style="padding-top:4px;overflow:hidden">
-      <div style="overflow-y:auto;flex:1;margin:0 -4px;padding:0 4px">
-        <table class="risk-table" id="riskTable"></table>
-      </div>
+    <div class="glass-body" style="padding-top:3px;overflow:hidden">
+      <div style="overflow-y:auto;flex:1;margin:0 -4px;padding:0 4px"><table class="risk-table" id="riskTable"></table></div>
     </div>
   </div>
-  <div class="panel glass" style="grid-column:span 7">
-    <div class="glass-header"><span class="icon">📊</span>主机健康矩阵<span class="module-subtitle">悬停查看详情</span></div>
+  <div class="panel glass" style="grid-column:span 7"><div class="glare"></div>
+    <div class="glass-header"><span class="icon">📊</span>主机健康矩阵<span class="module-subtitle">悬停查看</span></div>
     <div class="glass-body"><div class="matrix-grid" id="matrixGrid"></div></div>
   </div>
-  <div class="panel glass" style="grid-column:span 8">
+  <div class="panel glass" style="grid-column:span 8"><div class="glare"></div>
     <div class="glass-header"><span class="icon">💿</span>磁盘读写 TOP10<span class="module-subtitle">扇区/s</span></div>
-    <div class="glass-body" style="flex-direction:row;gap:6px;padding:4px 8px 6px">
+    <div class="glass-body" style="flex-direction:row;gap:5px;padding:3px 6px 5px">
       <div style="flex:1;display:flex;flex-direction:column;min-width:0">
-        <div style="font-size:9px;color:rgba(255,255,255,0.25);text-align:center;margin-bottom:2px">读取</div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.2);text-align:center;margin-bottom:1px">读取</div>
         <div class="chart-fill" id="chartDiskRead"></div>
       </div>
       <div style="flex:1;display:flex;flex-direction:column;min-width:0">
-        <div style="font-size:9px;color:rgba(255,255,255,0.25);text-align:center;margin-bottom:2px">写入</div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.2);text-align:center;margin-bottom:1px">写入</div>
         <div class="chart-fill" id="chartDiskWrite"></div>
       </div>
     </div>
@@ -269,6 +334,7 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Micro
 </div>
 
 <script>
+// ===================== DATA =====================
 const HOSTS=[
   {id:"host001",name:"server-001",owner:"陈三",model:"Dell R750",loc:"A机房",rack:"机柜12"},
   {id:"host002",name:"server-002",owner:"钱七",model:"HP DL388",loc:"B机房",rack:"机柜03"},
@@ -328,82 +394,81 @@ const ALERTS=[
   {m:"[SERIOUS] host009 内存53.6% 全集群最高",l:"serious",t:"50分钟前"}
 ];
 
+// ===================== CHARTS =====================
 const baseTheme={
-  textStyle:{color:'rgba(255,255,255,0.6)',fontFamily:'Inter,system-ui,sans-serif',fontSize:10},
+  textStyle:{color:'rgba(255,255,255,0.55)',fontFamily:'Inter,system-ui,sans-serif',fontSize:10},
   axisLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}},
   axisTick:{lineStyle:{color:'rgba(255,255,255,0.05)'}},
-  splitLine:{lineStyle:{color:'rgba(255,255,255,0.03)',type:'solid'}},
-  tooltip:{trigger:'axis',backgroundColor:'rgba(8,8,24,0.9)',borderColor:'rgba(255,255,255,0.08)',borderWidth:1,
-    textStyle:{color:'#e8e8f0',fontSize:11},extraCssText:'backdrop-filter:blur(12px);border-radius:8px;padding:10px 14px;box-shadow:0 8px 32px rgba(0,0,0,0.5);'}
+  splitLine:{lineStyle:{color:'rgba(255,255,255,0.025)',type:'solid'}},
+  tooltip:{trigger:'axis',backgroundColor:'rgba(8,8,24,0.92)',borderColor:'rgba(255,255,255,0.08)',borderWidth:1,
+    textStyle:{color:'#e8e8f0',fontSize:11},extraCssText:'backdrop-filter:blur(16px);border-radius:8px;padding:10px 14px;box-shadow:0 8px 32px rgba(0,0,0,0.5);'}
 };
-function opt(base){return{...base,grid:{...base.grid,containLabel:true},tooltip:baseTheme.tooltip}}
+function opt(base){return{...base,grid:{...base.grid,containLabel:true},tooltip:baseTheme.tooltip,animation:true,animationDuration:1200,animationEasing:'cubicOut'}}
 
-// === 1. 机房分布 ===
+// 1. 机房
 const lc=echarts.init(document.getElementById('chartLoc'));
 lc.setOption(opt({tooltip:{formatter:p=>`<strong>${p.name}</strong><br/>主机: ${p.value}`},
-series:[{type:'pie',radius:['38%','68%'],center:['50%','52%'],avoidLabelOverlap:true,padAngle:1.2,
+series:[{type:'pie',radius:['36%','66%'],center:['50%','52%'],avoidLabelOverlap:true,padAngle:1.2,
   itemStyle:{borderRadius:3,borderColor:'rgba(8,8,24,0.4)',borderWidth:2},
-  label:{color:'rgba(255,255,255,0.55)',fontSize:10,formatter:'{b}\n{d}%'},
-  labelLine:{length:10,length2:8,lineStyle:{color:'rgba(255,255,255,0.08)'}},
+  label:{color:'rgba(255,255,255,0.5)',fontSize:10,formatter:'{b}\n{d}%'},
+  labelLine:{length:10,length2:8,lineStyle:{color:'rgba(255,255,255,0.06)'}},
   data:[{value:7,name:'A机房',itemStyle:{color:'#2a78d6'}},{value:4,name:'B机房',itemStyle:{color:'#1baf7a'}},{value:3,name:'C机房',itemStyle:{color:'#eda100'}},{value:2,name:'D机房',itemStyle:{color:'#e34948'}},{value:4,name:'E机房',itemStyle:{color:'#4a3aa7'}}]}]}));
 
-// === 2. 型号 ===
+// 2. 型号
 const mc=echarts.init(document.getElementById('chartModel'));
 const MODS=['Huawei 2288H','HP DL388','Dell R750','Lenovo SR860','Lenovo SR650','Dell R740'];
 const MCNT=[5,4,4,3,2,2];
-mc.setOption(opt({grid:{left:80,right:10,top:8,bottom:20},
+mc.setOption(opt({grid:{left:80,right:10,top:6,bottom:18},
 xAxis:{type:'value',axisLabel:{fontSize:9},splitLine:{show:false}},
-yAxis:{type:'category',data:MODS,axisLabel:{fontSize:10,color:'rgba(255,255,255,0.5)'}},
-series:[{type:'bar',data:MCNT.map((v,i)=>{const cs=['#2a78d6','#1baf7a','#eda100','#4a3aa7','#eb6834','#e87ba4'];return{value:v,itemStyle:{color:cs[i],borderRadius:[0,3,3,0]}}}),barWidth:14,label:{show:true,position:'right',color:'rgba(255,255,255,0.35)',fontSize:10}}]}));
+yAxis:{type:'category',data:MODS,axisLabel:{fontSize:10,color:'rgba(255,255,255,0.45)'}},
+series:[{type:'bar',data:MCNT.map((v,i)=>{const cs=['#2a78d6','#1baf7a','#eda100','#4a3aa7','#eb6834','#e87ba4'];return{value:v,itemStyle:{color:cs[i],borderRadius:[0,3,3,0]}}}),barWidth:14,label:{show:true,position:'right',color:'rgba(255,255,255,0.3)',fontSize:10}}]}));
 
-// === 3. 趋势 ===
+// 3. 趋势
 const tc=echarts.init(document.getElementById('chartTrend'));
 const st=6,slb=[],scpu=[],sni=[],sno=[],smem=[];
 for(let i=0;i<TLABELS.length;i+=st){slb.push(TLABELS[i]);scpu.push(CPU[i]);sni.push(NETI[i]);sno.push(NETO[i]);smem.push(+(MEM[i]/1000).toFixed(1))}
 tc.setOption(opt({color:['#2a78d6','#5be0b0','#e66767','#eda100'],
-legend:{data:['CPU%','入站MB/s','出站MB/s','内存GB'],bottom:0,textStyle:{color:'rgba(255,255,255,0.4)',fontSize:10},itemWidth:12,itemHeight:8},
-grid:{left:40,right:12,top:6,bottom:36},
-xAxis:{type:'category',data:slb,axisLabel:{fontSize:8,interval:5,color:'rgba(255,255,255,0.25)'}},
-yAxis:{type:'value',splitLine:{lineStyle:{color:'rgba(255,255,255,0.03)'}},axisLabel:{fontSize:9}},
-series:[
-  {name:'CPU%',type:'line',smooth:true,symbol:'none',data:scpu,lineStyle:{width:1.5},areaStyle:{opacity:0.06}},
-  {name:'入站MB/s',type:'line',smooth:true,symbol:'none',data:sni,lineStyle:{width:1.5},areaStyle:{opacity:0.06}},
-  {name:'出站MB/s',type:'line',smooth:true,symbol:'none',data:sno,lineStyle:{width:1.5},areaStyle:{opacity:0.06}},
-  {name:'内存GB',type:'line',smooth:true,symbol:'none',data:smem,lineStyle:{width:1.5},areaStyle:{opacity:0.06}}]}));
+legend:{data:['CPU%','入站MB/s','出站MB/s','内存GB'],bottom:0,textStyle:{color:'rgba(255,255,255,0.35)',fontSize:10},itemWidth:12,itemHeight:8},
+grid:{left:40,right:12,top:6,bottom:34},
+xAxis:{type:'category',data:slb,axisLabel:{fontSize:8,interval:5,color:'rgba(255,255,255,0.2)'}},
+yAxis:{type:'value',splitLine:{lineStyle:{color:'rgba(255,255,255,0.02)'}},axisLabel:{fontSize:9}},
+series:[{name:'CPU%',type:'line',smooth:true,symbol:'none',data:scpu,lineStyle:{width:1.5},areaStyle:{opacity:0.06}},{name:'入站MB/s',type:'line',smooth:true,symbol:'none',data:sni,lineStyle:{width:1.5},areaStyle:{opacity:0.06}},{name:'出站MB/s',type:'line',smooth:true,symbol:'none',data:sno,lineStyle:{width:1.5},areaStyle:{opacity:0.06}},{name:'内存GB',type:'line',smooth:true,symbol:'none',data:smem,lineStyle:{width:1.5},areaStyle:{opacity:0.06}}]}));
 
-// === 4. 网络 ===
+// 4. 网络
 const nc=echarts.init(document.getElementById('chartNet'));
 const nl4=[],ni4=[],no4=[];
 for(let i=0;i<TLABELS.length;i+=4){nl4.push(TLABELS[i]);ni4.push(NETI[i]);no4.push(NETO[i])}
 nc.setOption(opt({color:['#2a78d6','#e66767'],
-legend:{data:['入站','出站'],bottom:0,textStyle:{color:'rgba(255,255,255,0.4)',fontSize:9},itemWidth:10,itemHeight:6},
-grid:{left:40,right:10,top:6,bottom:32},
-xAxis:{type:'category',data:nl4,axisLabel:{fontSize:8,interval:7,color:'rgba(255,255,255,0.2)'}},
-yAxis:{type:'value',name:'MB/s',nameTextStyle:{fontSize:9,color:'rgba(255,255,255,0.2)'},axisLabel:{fontSize:9},splitLine:{lineStyle:{color:'rgba(255,255,255,0.03)'}}},
+legend:{data:['入站','出站'],bottom:0,textStyle:{color:'rgba(255,255,255,0.35)',fontSize:9},itemWidth:10,itemHeight:6},
+grid:{left:40,right:10,top:6,bottom:30},
+xAxis:{type:'category',data:nl4,axisLabel:{fontSize:8,interval:7,color:'rgba(255,255,255,0.18)'}},
+yAxis:{type:'value',name:'MB/s',nameTextStyle:{fontSize:9,color:'rgba(255,255,255,0.18)'},axisLabel:{fontSize:9},splitLine:{lineStyle:{color:'rgba(255,255,255,0.02)'}}},
 series:[{name:'入站',type:'line',smooth:true,symbol:'none',data:ni4,lineStyle:{width:1.5},areaStyle:{opacity:0.08}},{name:'出站',type:'line',smooth:true,symbol:'none',data:no4,lineStyle:{width:1.5},areaStyle:{opacity:0.08}}]}));
 
-// === 5. 磁盘 ===
+// 5. 磁盘
 function diskCh(id,d,c){const ch=echarts.init(document.getElementById(id));const nm=d.map(x=>x.n).reverse(),vl=d.map(x=>x.v).reverse();
-ch.setOption(opt({grid:{left:65,right:6,top:2,bottom:14},xAxis:{type:'value',axisLabel:{fontSize:8,show:true},splitLine:{show:false}},yAxis:{type:'category',data:nm,axisLabel:{fontSize:8,color:'rgba(255,255,255,0.4)'}},series:[{type:'bar',data:vl.map(v=>({value:v,itemStyle:{color:c,borderRadius:[0,2,2,0]}})),barWidth:10,label:{show:true,position:'right',color:'rgba(255,255,255,0.25)',fontSize:8,formatter:p=>(p.value/1000).toFixed(0)+'K'}}]}))}
+ch.setOption(opt({grid:{left:60,right:6,top:2,bottom:12},xAxis:{type:'value',axisLabel:{fontSize:8,show:true},splitLine:{show:false}},yAxis:{type:'category',data:nm,axisLabel:{fontSize:8,color:'rgba(255,255,255,0.35)'}},series:[{type:'bar',data:vl.map(v=>({value:v,itemStyle:{color:c,borderRadius:[0,2,2,0]}})),barWidth:9,label:{show:true,position:'right',color:'rgba(255,255,255,0.2)',fontSize:8,formatter:p=>(p.value/1000).toFixed(0)+'K'}}]}))}
 diskCh('chartDiskRead',DR10,'#2a78d6');diskCh('chartDiskWrite',DW10,'#e66767');
 
-// === 6. 风险排行 ===
+// 6. 风险排行
 const rt=document.getElementById('riskTable');let rh='<thead><tr><th>#</th><th>主机</th><th>型号</th><th>CPU%</th><th>磁盘%</th><th>内存%</th><th>负载</th><th>风险</th></tr></thead><tbody>';
 RISK_DATA.forEach((r,i)=>{const h=HOSTS.find(x=>x.id===r[0]);const rc=i===0?'rank-1':i===1?'rank-2':i===2?'rank-3':'';const bw=Math.min(r[5]/60*100,100);
-rh+=`<tr><td><span class="risk-rank ${rc}">${i+1}</span></td><td style="font-weight:600;color:#fff">${r[0].replace('host','')}</td><td style="color:rgba(255,255,255,0.3);font-size:9px">${h?h.model:''}</td><td>${r[1].toFixed(1)}</td><td>${r[2].toFixed(1)}</td><td>${r[3].toFixed(1)}</td><td>${r[4].toFixed(2)}</td><td style="width:80px"><div class="risk-bar-bg"><div class="risk-bar-fill" style="width:${bw}%"></div></div></td></tr>`});
+rh+=`<tr><td><span class="risk-rank ${rc}">${i+1}</span></td><td style="font-weight:600;color:#fff">${r[0].replace('host','')}</td><td style="color:rgba(255,255,255,0.25);font-size:9px">${h?h.model:''}</td><td>${r[1].toFixed(1)}</td><td>${r[2].toFixed(1)}</td><td>${r[3].toFixed(1)}</td><td>${r[4].toFixed(2)}</td><td style="width:80px"><div class="risk-bar-bg"><div class="risk-bar-fill" style="width:${bw}%"></div></div></td></tr>`});
 rh+='</tbody>';rt.innerHTML=rh;
 
-// === 7. 健康矩阵 ===
+// 7. 健康矩阵
 const mg=document.getElementById('matrixGrid');
 HOSTS.forEach(h=>{const r=RISK_DATA.find(d=>d[0]===h.id);const s=r?r[5]:50;const st=s>=56?'red':s>=54?'orange':s>=53?'yellow':'green';const c=r?r[1]:0,d=r?r[2]:0,m=r?r[3]:0,l=r?r[4]:0;
 mg.innerHTML+=`<div class="matrix-cell" title="${h.id}|${h.model}|${h.loc}|CPU:${c.toFixed(1)}% 磁盘:${d.toFixed(1)}% 内存:${m.toFixed(1)}% 负载:${l.toFixed(2)}"><div class="matrix-cell-id"><span class="matrix-cell-status status-${st}"></span>${h.id.replace('host','')}</div><div class="matrix-cell-owner">${h.owner}</div></div>`});
 
-// === 8. 告警 ===
+// 8. 告警
 const ac=document.getElementById('alertContainer');let ah='<div class="alert-scroll">';
 [...ALERTS,...ALERTS].forEach(a=>{ah+=`<div class="alert-item"><span class="alert-badge badge-${a.l}">${a.l.toUpperCase()}</span><span class="alert-text">${a.m}</span><span class="alert-time">${a.t}</span></div>`});
 ah+='</div>';ac.innerHTML=ah;
 
-// === 9. 动效数字 ===
+// ===================== ANIMATIONS =====================
+
+// 9. 动效数字
 function anim(el,t,s='',d=1200){const sp=performance.now();const up=ti=>{const p=Math.min((ti-sp)/d,1);const e=1-Math.pow(1-p,3);const v=0+(t-0)*e;el.textContent=t>=10?Math.round(v).toLocaleString()+s:v.toFixed(1)+s;if(p<1)requestAnimationFrame(up)};requestAnimationFrame(up)}
 const aCPU=CPU.reduce((a,b)=>a+b,0)/CPU.length;
 const mRates=HOSTS.map(h=>{const r=RISK_DATA.find(d=>d[0]===h.id);return r?r[3]:50});
@@ -415,7 +480,6 @@ setTimeout(()=>anim(document.getElementById('onlineRate'),100,'%',1000),200);
 setTimeout(()=>anim(document.getElementById('avgCpu'),+aCPU.toFixed(1),'%',1200),400);
 setTimeout(()=>anim(document.getElementById('avgMem'),+aMem.toFixed(1),'%',1200),600);
 
-// Tag updates
 function updTag(sel,score,th){const c=document.querySelector(sel);if(!c)return;const t=c.querySelector('.stat-card-tag');if(!t)return;
 if(score>=th[0]){t.className='stat-card-tag tag-good';t.textContent='状态良好'}
 else if(score>=th[1]){t.className='stat-card-tag tag-warn';t.textContent='中等负载'}
@@ -429,17 +493,32 @@ updTag('.stat-card:nth-child(4)',aMem,[40,55,70]);
 function clock(){const n=new Date();document.getElementById('headerTime').textContent='🕐 '+n.toLocaleDateString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})}
 clock();setInterval(clock,1000);
 
-// Particles
-(function(){const c=document.getElementById('particles');for(let i=0;i<30;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.width=p.style.height=(1+Math.random()*2)+'px';p.style.animationDuration=(18+Math.random()*22)+'s';p.style.animationDelay=Math.random()*20+'s';p.style.opacity=0.1+Math.random()*0.15;c.appendChild(p)}})();
+// Stars
+(function(){const c=document.getElementById('stars');for(let i=0;i<60;i++){const s=document.createElement('div');s.className='star';const size=0.8+Math.random()*1.8;s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.width=size+'px';s.style.height=size+'px';s.style.setProperty('--min-o',(0.1+Math.random()*0.3));s.style.setProperty('--max-o',(0.5+Math.random()*0.5));s.style.setProperty('--dur',(2+Math.random()*4)+'s');s.style.animationDelay=Math.random()*5+'s';c.appendChild(s)}})();
 
-// Resize
-const allCharts=[];[lc,mc,tc,nc].forEach(c=>allCharts.push(c));
+// Floating data characters
+(function(){const c=document.getElementById('dataFloat');const chars='0123456789ABCDEF';for(let i=0;i<20;i++){const el=document.createElement('div');el.className='data-char';el.textContent=chars[Math.floor(Math.random()*chars.length)];el.style.left=Math.random()*100+'%';el.style.fontSize=(6+Math.random()*8)+'px';el.style.animationDuration=(15+Math.random()*25)+'s';el.style.animationDelay=Math.random()*20+'s';el.style.opacity=0.05+Math.random()*0.1;c.appendChild(el)}})();
+
+// Particles (smaller set, complementary to stars)
+(function(){const c=document.getElementById('particles');for(let i=0;i<20;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.width=p.style.height=(1+Math.random()*2)+'px';p.style.animationDuration=(20+Math.random()*25)+'s';p.style.animationDelay=Math.random()*15+'s';p.style.opacity=0.05+Math.random()*0.1;c.appendChild(p)}})();
+
+// Risk bar init animation
+setTimeout(()=>{document.querySelectorAll('.risk-bar-fill').forEach(el=>{const w=el.style.width;el.style.width='0';setTimeout(()=>{el.style.width=w},80)})},150);
+
+// ECharts resize
+const allCharts=[lc,mc,tc,nc];
 window.addEventListener('resize',()=>{allCharts.forEach(c=>c.resize());document.querySelectorAll('#chartDiskRead,#chartDiskWrite').forEach(el=>{const ci=echarts.getInstanceByDom(el);ci&&ci.resize()})});
 
-// Init animation for risk bars
-setTimeout(()=>{document.querySelectorAll('.risk-bar-fill').forEach(el=>{const w=el.style.width;el.style.width='0';setTimeout(()=>{el.style.width=w},50)})},100);
+// Periodic chart "refresh" animation (subtle data pulse)
+setInterval(()=>{
+  document.querySelectorAll('.chart-fill canvas').forEach(canvas=>{
+    canvas.style.transition='opacity 0.6s';
+    canvas.style.opacity='0.85';
+    setTimeout(()=>{canvas.style.opacity='1'},300);
+  });
+},15000);
 
-console.log('✅ TSAR 大屏已加载 · 全屏一页 · 无滚动');
+console.log('✅ TSAR 大屏 v3 · 毛玻璃增强 · 动态背景 · 沉浸体验');
 </script>
 </body>
 </html>
