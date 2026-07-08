@@ -7,7 +7,8 @@
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow:hidden}
+html{width:100%;height:100%;margin:0;padding:0}
+body{width:100%;height:100%;margin:0;padding:0;overflow:hidden}
 body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#04040e;color:#e8e8f0;user-select:none}
 /* ===== 🎆 Animated Background ===== */
 .bg-layer{position:fixed;inset:0;z-index:0;overflow:hidden}
@@ -103,13 +104,10 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Micro
 .glass-header .icon{font-size:14px;width:18px;text-align:center;flex-shrink:0}
 .glass-body{flex:1;padding:5px 8px 7px;min-height:0;display:flex;flex-direction:column}
 .module-subtitle{font-size:10px;color:rgba(255,255,255,0.22);margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-/* ===== Layout Grid - 全屏自适应 ===== */
-.dashboard{position:relative;z-index:3;width:100%;height:100vh;display:grid;grid-template-rows:42px 60px 1.4fr 1fr 1.1fr;grid-template-columns:repeat(24,1fr);gap:5px;padding:0}
-.dashboard>*{margin-left:6px;margin-right:6px}
-.dashboard>*:last-child{margin-bottom:6px}
-.dashboard>.stat-row{margin-left:6px;margin-right:6px}
+/* ===== Layout Grid - 固定定位 精确填满 ===== */
+.dashboard{position:fixed;inset:0;z-index:3;display:grid;grid-template-rows:42px 58px 1.3fr 1fr 1.05fr;grid-template-columns:repeat(24,1fr);gap:4px;padding:6px}
 /* ===== Header - 首行置顶 全宽 ===== */
-.header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:5px 20px;border-radius:0 0 12px 12px;gap:10px;margin:0!important;border-top:none;background:rgba(255,255,255,0.08);box-shadow:0 4px 32px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.12);position:relative;z-index:10}
+.header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:5px 20px;border-radius:0 0 10px 10px;gap:10px;margin: -6px -6px 0 -6px;border-top:none;background:rgba(255,255,255,0.08);box-shadow:0 4px 32px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.12);position:relative;z-index:10}
 .header::after{content:'';position:absolute;bottom:-1px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(42,120,214,0.3),rgba(100,200,255,0.5),rgba(42,120,214,0.3),transparent);pointer-events:none}
 .header-left{display:flex;align-items:center;gap:10px;min-width:0}
 .header-logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#2a78d6,#6d5ae0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 2px 12px rgba(42,120,214,0.4);animation:logoGlow 3s ease-in-out infinite alternate}
@@ -201,7 +199,7 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Micro
 ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.06);border-radius:2px}
 /* ===== Responsive ===== */
 @media(max-width:1366px){
-  .dashboard{gap:4px;padding:0;grid-template-rows:36px 54px 1.35fr 1fr 1.05fr}
+  .dashboard{gap:3px;padding:4px;grid-template-rows:36px 52px 1.3fr 1fr 1fr}
   .header-title{font-size:14px}.header-title span{font-size:11px}
   .stat-card-value{font-size:22px}.stat-card{padding:7px 10px}
   .glass-header{font-size:12px;padding:7px 10px 0}
@@ -209,7 +207,8 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Micro
   .matrix-cell-id{font-size:9px}.alert-item{font-size:10px;padding:3px 2px}
 }
 @media(max-width:1024px){
-  .dashboard{grid-template-columns:repeat(12,1fr);grid-template-rows:36px auto auto auto auto auto;overflow-y:auto;height:auto;min-height:100vh;padding:0}
+  .dashboard{position:relative;inset:auto;grid-template-columns:repeat(12,1fr);grid-template-rows:36px auto auto auto auto auto;overflow-y:auto;height:auto;min-height:100vh;padding:6px}
+  .header{margin:-6px -6px 0 -6px}
   .stat-row{grid-template-columns:repeat(2,1fr)}.matrix-grid{grid-template-columns:repeat(4,1fr)}
 }
 </style>
@@ -509,8 +508,10 @@ clock();setInterval(clock,1000);
 // Risk bar init animation
 setTimeout(()=>{document.querySelectorAll('.risk-bar-fill').forEach(el=>{const w=el.style.width;el.style.width='0';setTimeout(()=>{el.style.width=w},80)})},150);
 
-// ECharts resize
+// ECharts resize + 固定定位确保填满
 const allCharts=[lc,mc,tc,nc];
+function fixViewport(){const d=document.querySelector('.dashboard');if(d)d.style.height=window.innerHeight+'px'}
+fixViewport();window.addEventListener('resize',fixViewport);
 window.addEventListener('resize',()=>{allCharts.forEach(c=>c.resize());document.querySelectorAll('#chartDiskRead,#chartDiskWrite').forEach(el=>{const ci=echarts.getInstanceByDom(el);ci&&ci.resize()})});
 
 // Periodic chart "refresh" animation (subtle data pulse)
